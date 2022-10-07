@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const PostSchema = new mongoose.Schema({
-  title: {
+  event: {
     type: String,
     required: true,
   },
@@ -13,7 +13,7 @@ const PostSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
-  caption: {
+  summary: {
     type: String,
     required: true,
   },

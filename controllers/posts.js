@@ -34,14 +34,15 @@ module.exports = {
       const result = await cloudinary.uploader.upload(req.file.path);
 
       await Post.create({
-        title: req.body.title,
+        event: req.body.event,
         image: result.secure_url,
         cloudinaryId: result.public_id,
-        caption: req.body.caption,
+        summary: req.body.summary,
         likes: 0,
         user: req.user.id,
       });
       console.log("Post has been added!");
+      console.log(req.body)
       res.redirect("/profile");
     } catch (err) {
       console.log(err);
