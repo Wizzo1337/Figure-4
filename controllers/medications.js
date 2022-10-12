@@ -76,4 +76,12 @@ module.exports = {
       res.redirect("/profile");
     }
   },
+  getMed: async (req, res) => {
+    try {
+      const posts = await Post.find().sort({ createdAt: "desc" }).lean();
+      res.render("medication.ejs", {  });
+    } catch (err) {
+      console.log(err);
+    }
+  }
 };

@@ -8,7 +8,8 @@
               <a href="/logout" class="col-3 btn btn-primary">Logout</a>
           </div>
           <div class="mt-5">
-            <h2>Add a post</h2>
+            <a href="/medication" class="col-3 btn btn-danger">Medication List</a>
+            <h2>Add a new seizure event</h2>
             <form action="/post/createPost" enctype="multipart/form-data" method="POST">
               <div class="mb-3">
                   <label for="event" class="form-label">Event</label>
@@ -18,10 +19,10 @@
                 <label for="summary" class="form-label">Summary</label>
                 <textarea class="form-control" id="summary" name="summary"></textarea>
               </div>
-              <div class="mb-3">
+              <!-- <div class="mb-3">
                 <label for="imgUpload" class="form-label">Image</label>
                 <input type="file" class="form-control" id="imageUpload" name="file">
-              </div>
+              </div> -->
               <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
             </form>
           </div>
@@ -34,9 +35,12 @@
               <img class="img-fluid" src="<%= posts[i].image%>">
             </a>
             <div class="card-body">
-              <h5 class="card-title"><%= posts[i].event%></h5>
+              <a href="/post/<%= posts[i]._id%>">
+                <h5 class="card-title"><%= posts[i].event%></h5>
+              </a>
+              <p class="card-text"><%= posts[i].createdAt.toLocaleDateString() %></p>
               <p class="card-text"><%= posts[i].summary %></p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <a href="/post/<%= posts[i]._id%>" class="btn btn-primary">Go to Event</a>
             </div>
           </div>
         <% } %>
