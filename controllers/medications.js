@@ -79,7 +79,7 @@ module.exports = {
   getMed: async (req, res) => {
     try {
       const posts = await Post.find().sort({ createdAt: "desc" }).lean();
-      res.render("medication.ejs", {  });
+      res.render("medication.ejs", { user: req.user, posts: posts });
     } catch (err) {
       console.log(err);
     }
