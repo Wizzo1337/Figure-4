@@ -9,19 +9,19 @@
               <a href="/logout" class="col-3 btn btn-primary">Logout</a>
           </div>
           <div class="mt-5">
-            <a href="/medication" class="col-3 btn btn-danger">Medication List</a>
-            <h2>Add a new Medication</h2>
-            <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+            <!-- <a href="/medication" class="col-3 btn btn-danger">Medication List</a> -->
+            <h2>Add a new Medication  </h2>
+            <form action="/medication/createMed" enctype="multipart/form-data" method="POST">
               <div class="mb-3">
-                  <label for="event" class="form-label">Medication Name</label>
-                  <input type="text" class="form-control" id="event" name="event">
+                  <label for="medName" class="form-label">Medication Name</label>
+                  <input type="text" class="form-control" id="medName" name="medName">
               </div>
               <div class="mb-3">
-                <label for="summary" class="form-label">Instructions and time&#47quantity</label>
-                <textarea class="form-control" id="summary" name="summary"></textarea>
+                <label for="instruction" class="form-label">Instructions</label>
+                <textarea class="form-control" id="instruction" name="instruction"></textarea>
               </div>
               <div class="mb-3">
-                <label for="imgUpload" class="form-label">Image of pill</label>
+                <label for="imgUpload" class="form-label">Image of Medications</label>
                 <input type="file" class="form-control" id="imageUpload" name="file">
               </div>
               <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
@@ -30,18 +30,18 @@
       </div>
       <div class="col-6">
         <ul class="row list-unstyled">
-        <% for(var i=0; i<posts.length; i++) {%>
+        <% for(var i=0; i<meds.length; i++) {%>
           <div class="card col-6 justify-content-between mt-5" style="width: 18rem;">
-            <a href="/post/<%= posts[i]._id%>">
-              <img class="img-fluid" src="<%= posts[i].image%>">
+            <a href="/medication/<%= meds[i]._id%>">
+              <img class="img-fluid" src="<%= meds[i].image%>">
             </a>
             <div class="card-body">
-              <a href="/post/<%= posts[i]._id%>">
-                <h5 class="card-title"><%= posts[i].event%></h5>
+              <a href="/medication/<%= meds[i]._id%>">
+                <h5 class="card-title"><%= meds[i].medication%></h5>
               </a>
-              <p class="card-text"><%= posts[i].createdAt.toLocaleDateString() %></p>
-              <p class="card-text"><%= posts[i].summary %></p>
-              <a href="/post/<%= posts[i]._id%>" class="btn btn-primary">Go to Event</a>
+              <p class="card-text"><%= meds[i].createdAt.toLocaleDateString() %></p>
+              <p class="card-text"><%= meds[i].instruction %></p>
+              <a href="/medication/<%= meds[i]._id%>" class="btn btn-primary">Go to Event</a>
             </div>
           </div>
         <% } %>
