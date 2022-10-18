@@ -11,6 +11,16 @@ module.exports = {
       console.log(err);
     }
   },
+  getMedView: async (req, res) => {
+    try {
+      const meds = await Medication.findById(req.params.id);
+      console.log(meds)
+      const comments = await Comment.find({meds: req.params.id}).sort({ createdAt: "desc" }).lean();
+      res.render("medication-view.ejs", { user: req.user, meds: meds, comments: comments });
+    } catch (err) {
+      console.log(err);
+    }
+  },
   createMed: async (req, res) => {
     try {
       // Upload image to cloudinary

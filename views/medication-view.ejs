@@ -2,21 +2,21 @@
 <div class="container">
   <div class="row justify-content-center mt-5">
     <div class="col-6">
-      <h2><%= post.event %></h2>
-        <p class="card-text"><%= post.createdAt.toLocaleDateString() %></p>
-        <p class="card-text"><%= post.summary %></p>
+      <h2><%= meds.medication %></h2>
+        <p class="card-text"><%= meds.createdAt %></p>
+        <p class="card-text"><%= meds.instruction %></p>
       <div class="row justify-content-between">
         <form
           class="col-1"
-          action="/post/likePost/<%= post.id %>?_method=PUT"
+          action="/post/likePost/<%= meds.id %>?_method=PUT"
           method="POST"
         >
           <button class="btn btn-primary fa fa-heart" type="submit"></button>
         </form>
-        <h3 class="col-3">Likes: <%= post.likes %></h3>
-        <%if(post.user == user.id){ %>
+        <h3 class="col-3">Likes: <%= meds.likes %></h3>
+        <%if(meds.user == user.id){ %>
         <form
-          action="/post/deletePost/<%= post.id %>?_method=DELETE"
+          action="/post/deletePost/<%= meds.id %>?_method=DELETE"
           method="POST"
           class="col-3"
         >
@@ -26,11 +26,11 @@
       </div>
     </div>
     <div class="col-3 mt-5">
-      <p><%= post.caption %></p>
+      <p></p>
     </div>
     <div class="mt-5">
             <h2>Add a comment</h2>
-            <form action="/comment/createComment/<%=post._id%>" method="POST">
+            <form action="/comment/createComment/<%=meds._id%>" method="POST">
               <div class="mb-3">
                   <label for="comment" class="form-label">Comment</label>
                   <input type="text" class="form-control" id="comment" name="comment">

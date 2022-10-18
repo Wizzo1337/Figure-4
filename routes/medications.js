@@ -5,7 +5,7 @@ const medicationsController = require("../controllers/medications");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 //Med Routes - simplified for now
-router.get("/:id", ensureAuth, medicationsController.getMed);
+router.get("/:id", ensureAuth, medicationsController.getMedView);
 
 router.post("/createMed", upload.single("file"), medicationsController.createMed);
 
