@@ -4,12 +4,17 @@
       <ul class="row list-unstyled">
         <% for(var i=0; i<posts.length; i++) {%>
           <li class="col-6 justify-content-between mt-5">
-            <a href="/post/<%= posts[i]._id%>">
-              <img class="img-fluid" src="<%= posts[i].image%>">
-            </a>
+            <div class="card-body">
+              <a href="/post/<%= posts[i]._id%>">
+                <h5 class="card-title"><%= posts[i].event%></h5>
+              </a>
+              <p class="card-text"><%= posts[i].createdAt.toLocaleDateString() %></p>
+              <p class="card-text"><%= posts[i].summary %></p>
+              <a href="/post/<%= posts[i]._id%>" class="btn btn-primary">Go to Event</a>
+            </div>
           </li>
         <% } %>
         </ul>
     </div>
-  </div>  
+  </div>
 <%- include('partials/footer') -%>
