@@ -22,6 +22,12 @@
         >
           <button class="btn btn-primary fa fa-trash" type="submit"></button>
         </form>
+        <form
+          action="/post/sharePost/<%= post.id %>?_method=PUT"
+          method="POST"
+        >
+          <button class="btn btn-primary far fa-share-square" type="submit"></button>
+        </form>
         <%}%>
       </div>
     </div>
