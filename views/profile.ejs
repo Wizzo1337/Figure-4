@@ -8,29 +8,32 @@
               <!-- <a href="/logout" class="col-3 btn btn-primary">Logout</a> -->
           </div>
           <div class="mt-5">
-            <a href="/medication" class="col-3 btn btn-danger">Medication List</a>
-            <h2>Add a new seizure event</h2>
-            <form action="/post/createPost" enctype="multipart/form-data" method="POST">
-              <div class="mb-3">
-                  <label for="event" class="form-label">Event</label>
-                  <input type="text" class="form-control" id="event" name="event">
-              </div>
-              <div class="mb-3">
-                <label for="summary" class="form-label">Summary</label>
-                <textarea class="form-control" id="summary" name="summary"></textarea>
-              </div>
-              <!-- <div class="mb-3">
-                <label for="imgUpload" class="form-label">Image</label>
-                <input type="file" class="form-control" id="imageUpload" name="file">
-              </div> -->
-              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
-            </form>
+            <a href="/medication" class="col-3 btn btn-warning mb-5">Medication List</a>
+            <div class="border border-primary p-5">
+              <h2>Add a new seizure event</h2>
+              <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+                <div class="mb-3">
+                    <label for="event" class="form-label">Event</label>
+                    <input type="text" class="form-control bg-light bg-opacity-75" id="event" name="event">
+                </div>
+                <div class="mb-3">
+                  <label for="summary" class="form-label">Summary</label>
+                  <textarea class="form-control bg-light bg-opacity-75" id="summary" name="summary"></textarea>
+                </div>
+                <!-- <div class="mb-3">
+                  <label for="imgUpload" class="form-label">Image</label>
+                  <input type="file" class="form-control" id="imageUpload" name="file">
+                </div> -->
+                <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+              </form>
+            </div>
           </div>
       </div>
       <div class="col-6">
+        <h2 class="text-primary">My Seizure Events</h2>
         <ul class="row list-unstyled">
         <% for(var i=0; i<posts.length; i++) {%>
-          <div class="card col-6 justify-content-between mt-5" style="width: 18rem;">
+          <div class="card col-6 justify-content-between mt-5 bg-light bg-opacity-75" style="width: 18rem;">
             <a href="/post/<%= posts[i]._id%>">
               <img class="img-fluid" src="<%= posts[i].image%>">
             </a>
@@ -46,7 +49,7 @@
         <% } %>
         </ul>
         <div class="row justify-content-center mt-5">
-          <a class="btn btn-primary" href="/feed">Return to Shared Events</a>
+          <a class="btn btn-primary" href="/feed">View Shared Events</a>
         </div>
       </div>
     </div>
