@@ -1,11 +1,11 @@
-<%- include('partials/header') -%>
+<%- include('partials/header-logged-in') -%>
 <div class="container">
   <div class="row mt-5">
       <div class="col-6">
           <div>
-              <p><strong>User Name</strong>: <%= user.userName %></p>
+              <p><strong>Current User</strong>: <%= user.userName %></p>
               <p><strong>Email</strong>: <%= user.email %></p>
-              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
+              <!-- <a href="/logout" class="col-3 btn btn-primary">Logout</a> -->
           </div>
           <div class="mt-5">
             <a href="/medication" class="col-3 btn btn-danger">Medication List</a>
