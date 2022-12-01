@@ -51,14 +51,26 @@ module.exports = {
 	},
 	likePost   : async (req, res) => {
 		try {
-			await Post.findOneAndUpdate(
-				{_id: req.params.id},
-				{
-					$inc : {likes: 1}
-				}
-			);
-			console.log('Likes +1');
-			res.redirect(`/post/${req.params.id}`);
+			const post = await Post.findById(req.params.id);
+			if (post.usersLiked.includes(req.user._id)) {
+				console.log("You've already liked this event!")
+			} else {
+				await Post.findOneAndUpdate(
+					{_id: req.params.id},
+					{
+						$inc : {likes: 1}
+					}
+				);
+				await Post.findOneAndUpdate(
+					{_id: req.params.id},
+					{
+						$push : { usersLiked: req.user._id}
+					}
+				);
+				console.log('Likes +1');
+				console.log(post)
+				res.redirect(`/post/${req.params.id}`);
+			}
 		} catch (err) {
 			console.log(err);
 		}

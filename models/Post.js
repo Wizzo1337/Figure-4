@@ -21,6 +21,9 @@ const PostSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  usersLiked: {
+    type: Array,
+  },
   public: {
     type: Boolean,
     default: false,
