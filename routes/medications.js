@@ -11,6 +11,6 @@ router.post("/createMed", upload.single("file"), medicationsController.createMed
 
 // router.put("/likePost/:id", postsController.likePost);
 
-// router.delete("/deletePost/:id", postsController.deletePost);
+router.delete("/deleteMed/:id", medicationsController.deleteMed);
 
 module.exports = router;

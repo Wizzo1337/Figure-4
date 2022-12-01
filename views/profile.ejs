@@ -3,7 +3,6 @@
   <div class="row mt-5">
       <div class="col-6">
           <div>
-              <p><strong>Current User</strong>: <%= user.userName %></p>
               <p><strong>Email</strong>: <%= user.email %></p>
               <!-- <a href="/logout" class="col-3 btn btn-primary">Logout</a> -->
           </div>
@@ -30,7 +29,7 @@
           </div>
       </div>
       <div class="col-6">
-        <h2 class="text-primary">My Seizure Events</h2>
+        <h2 class="text-primary">Seizure Events for <%= user.userName %></h2>
         <ul class="row list-unstyled">
         <% for(var i=0; i<posts.length; i++) {%>
           <div class="card col-6 justify-content-between mt-5 bg-light bg-opacity-75" style="width: 18rem;">
