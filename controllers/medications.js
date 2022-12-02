@@ -1,30 +1,36 @@
-const cloudinary = require("../middleware/cloudinary");
-const Medication = require("../models/Medication");
-const Comment = require("../models/Comment");
+const cloudinary = require('../middleware/cloudinary')
+const Medication = require('../models/Medication')
+const Comment = require('../models/Comment')
 
 module.exports = {
   getMed: async (req, res) => {
     try {
-      const meds = await Medication.find({ user: req.user.id });
-      res.render("medication.ejs", { user: req.user, meds: meds });
+      const meds = await Medication.find({ user: req.user.id })
+      res.render('medication.ejs', { user: req.user, meds: meds })
     } catch (err) {
-      console.log(err);
+      console.log(err)
     }
   },
   getMedView: async (req, res) => {
     try {
-      const meds = await Medication.findById(req.params.id);
+      const meds = await Medication.findById(req.params.id)
       console.log(meds)
-      const comments = await Comment.find({meds: req.params.id}).sort({ createdAt: "desc" }).lean();
-      res.render("medication-view.ejs", { user: req.user, meds: meds, comments: comments });
+      const comments = await Comment.find({ meds: req.params.id })
+        .sort({ createdAt: 'desc' })
+        .lean()
+      res.render('medication-view.ejs', {
+        user: req.user,
+        meds: meds,
+        comments: comments,
+      })
     } catch (err) {
-      console.log(err);
+      console.log(err)
     }
   },
   createMed: async (req, res) => {
     try {
       // Upload image to cloudinary
-      const result = await cloudinary.uploader.upload(req.file.path);
+      const result = await cloudinary.uploader.upload(req.file.path)
 
       await Medication.create({
         medication: req.body.medName,
@@ -33,22 +39,22 @@ module.exports = {
         instruction: req.body.instruction,
         likes: 0,
         user: req.user.id,
-      });
-      console.log("Med has been added!");
+      })
+      console.log('Med has been added!')
       console.log(req.body)
-      res.redirect("/medication");
+      res.redirect('/medication')
     } catch (err) {
-      console.log(err);
+      console.log(err)
     }
   },
   deleteMed: async (req, res) => {
     try {
-      await Medication.remove({ _id: req.params.id });
-      console.log("Med has been deleted!");
-      res.redirect("/medication");
+      await Medication.remove({ _id: req.params.id })
+      console.log('Med has been deleted!')
+      res.redirect('/medication')
     } catch (err) {
-      res.redirect("/profile");
-      console.log("Error deleting med");
+      res.redirect('/profile')
+      console.log('Error deleting med')
     }
-  }
-};
+  },
+}
