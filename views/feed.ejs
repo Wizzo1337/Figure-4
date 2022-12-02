@@ -1,10 +1,10 @@
-<%- include('partials/header') -%>
+<%- include('partials/header-logged-in') -%>
   <div class="container">
     <div class="row justify-content-center mt-5">
       <ul class="row list-unstyled">
         <% for(var i=0; i<posts.length; i++) {%>
           <li class="col-6 justify-content-between mt-5">
-            <div class="card-body">
+            <div class="card-body border border-secondary">
               <% if (posts[i].public) {%>
               <a href="/post/<%= posts[i]._id%>">
                 <h5 class="card-title"><%= posts[i].event%></h5>
@@ -16,6 +16,9 @@
           </li>
         <% }} %>
         </ul>
+    </div>
+    <div class="col-6 mt-5">
+      <a class="btn btn-secondary" href="/profile">Return to Profile</a>
     </div>
   </div>
 <%- include('partials/footer') -%>

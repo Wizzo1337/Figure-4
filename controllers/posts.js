@@ -21,6 +21,7 @@ module.exports = {
 	},
 	getPost    : async (req, res) => {
 		try {
+			
 			const post = await Post.findById(req.params.id);
 			console.log(post);
 			const comments = await Comment.find({post: req.params.id}).sort({createdAt: 'desc'}).lean();
@@ -54,6 +55,7 @@ module.exports = {
 			const post = await Post.findById(req.params.id);
 			if (post.usersLiked.includes(req.user._id)) {
 				console.log("You've already liked this event!")
+				res.redirect(`/post/${req.params.id}`)
 			} else {
 				await Post.findOneAndUpdate(
 					{_id: req.params.id},
