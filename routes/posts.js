@@ -11,7 +11,9 @@ router.post("/createPost", upload.single("file"), postsController.createPost);
 
 router.put("/likePost/:id", postsController.likePost);
 
-router.put("/sharePost/:id", postsController.sharePost)
+router.put("/sharePost/:id", postsController.sharePost);
+
+router.put("/unSharePost/:id", postsController.unSharePost);
 
 router.delete("/deletePost/:id", postsController.deletePost);
 

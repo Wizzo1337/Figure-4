@@ -27,14 +27,14 @@
           action="/post/sharePost/<%= post.id %>?_method=PUT"
           method="POST"
         >
-          <button class="btn btn-primary far fa-share-square" type="submit"></button>
+          <button class="btn btn-primary far fa-solid fa-lock" type="submit"></button>
         </form>
         <% } else { %>
 				<form
           action="/post/unSharePost/<%= post.id %>?_method=PUT"
           method="POST"
         >
-          <button class="btn btn-primary" type="submit"><i class="fa-solid fa-lock"></i></button>
+          <button class="btn btn-primary far fa-solid fa-lock" type="submit"></button>
         </form>
 				<% } %>
         <%}%>

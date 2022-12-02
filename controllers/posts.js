@@ -21,7 +21,6 @@ module.exports = {
 	},
 	getPost    : async (req, res) => {
 		try {
-			
 			const post = await Post.findById(req.params.id);
 			console.log(post);
 			const comments = await Comment.find({post: req.params.id}).sort({createdAt: 'desc'}).lean();
@@ -91,13 +90,23 @@ module.exports = {
 			console.log(err);
 		}
 	},
+	unSharePost  : async (req, res) => {
+		try {
+			await Post.findOneAndUpdate(
+				{_id: req.params.id},
+				{
+					$set : { public: false}
+				}
+			);
+			console.log('Post is now private!');
+			res.redirect(`/post/${req.params.id}`);
+		} catch (err) {
+			console.log(err);
+		}
+	},
 	deletePost : async (req, res) => {
 		try {
-			// Find post by id
 			let post = await Post.findById({_id: req.params.id});
-			// Delete image from cloudinary
-			// await cloudinary.uploader.destroy(post.cloudinaryId);
-			// Delete post from db
 			await Post.remove({_id: req.params.id});
 			console.log('Deleted Post');
 			res.redirect('/profile');
