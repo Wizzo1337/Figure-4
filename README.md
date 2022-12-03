@@ -10,8 +10,7 @@
 email: testuser123@gmail.com <br>
 password: testuser123
 
-![image](https://media.giphy.com/media/0YhTf0BZbeZjzg5DrK/giphy.gif)
-<img src="images-to-add/figure4.gif" width="900px"/><br/>
+<img src="images-to-add/figure4.gif" width="1080px"/><br/>
 
 
 ## How It's Made:
