@@ -10,7 +10,7 @@
 email: testuser123@gmail.com <br>
 password: testuser123
 
-![image](https://raw.githubusercontent.com/Wizzo1337/Figure-4/main/images-to-add/1891810-009blastoise.png)
+![image](https://media.giphy.com/media/0YhTf0BZbeZjzg5DrK/giphy.gif)
 
 
 ## How It's Made:
