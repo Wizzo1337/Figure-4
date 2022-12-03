@@ -4,8 +4,8 @@
     <div class="col-6">
       <h2><%= post.event %></h2>
         <p class="card-text"><%= post.createdAt.toLocaleDateString() %></p>
-        <p class="card-text"><%= post.summary %></p>
-        <p class="card-text"><%= posts[0].userName %></p>
+        <p class="card-text fs-3"><%= post.summary %></p>
+        <p class="card-text">Written by: <%= posts[0].userName %></p>
       <div class="row justify-content-between">
         <form
           class="col-1"
@@ -45,19 +45,20 @@
       <p><%= post.caption %></p>
     </div>
     <div class="mt-5">
-            <h2>Add a comment</h2>
-            <form action="/comment/createComment/<%=post._id%>" method="POST">
-              <div class="mb-3">
-                  <label for="comment" class="form-label">Comment</label>
-                  <input type="text" class="form-control bg-light bg-opacity-75" id="comment" name="comment">
-              </div>
-              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
-            </form>
-          </div>
+      <h2>Add a comment</h2>
+      <form action="/comment/createComment/<%=post._id%>" method="POST">
+        <div class="mb-3">
+            <label for="comment" class="form-label">Comment</label>
+            <input type="text" class="form-control bg-light bg-opacity-75" id="comment" name="comment">
+        </div>
+        <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+      </form>
+    </div>
     <ul>
       <% for(var i=0; i<comments.length; i++) { %>
           <li class="col-6 justify-content-between mt-5">
-            <%= comments[i].userName%>: <%= comments[i].comment%>
+            <div class="fs-4 text-decoration-underline text-primary"><%= comments[i].userName%></div>
+            <div class="fs-5"><%= comments[i].comment%></div>
             <% if (user.id == comments[i].user) { %>
               <form action="/comment/deleteComment/<%= comments[i]._id %>?_method=DELETE" method="POST" class="col-3">
                 <button class="btn btn-danger" type="submit"><i class="fa-solid fa-trash"></i></button>
