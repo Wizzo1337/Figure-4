@@ -6,7 +6,7 @@
 
 The Figure 4 app gives people suffering from epilepsy a chance to log all of their seizures which can be used during Doctor visits to help treat their seizures.  After an event is posted, the user can either make it public or private.  Public events will allow other users to comment and like the event.  Users can make events private at any time.  There is also a medication list that will help epileptic patients remember what kind of seizure medications they are taking.
 
-**Link to project:** https://www.google.com/ <br>
+**Link to project:** https://figure-4.up.railway.app/ <br>
 **Demo User** <br>
 email: testuser123@gmail.com <br>
 password: testuser123
