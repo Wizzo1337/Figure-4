@@ -2,7 +2,7 @@
 
 
 <h1 align="center">
-  <img src="[https://user-images.githubusercontent.com/64442298/122506015-58731f00-cfb2-11eb-8680-4812796e44f9.png](https://github.com/Wizzo1337/Figure-4/blob/main/images-to-add/Figure%204%20banner.png?raw=true)" width="224px"/><br/>
+  <img src="https://raw.githubusercontent.com/Wizzo1337/Figure-4/main/images-to-add/Figure%204%20banner.png" width="900px"/><br/>
   Figure 4 <br>
   The next generation in Epilepsy management
 </h1>
