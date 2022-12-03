@@ -22,7 +22,9 @@ I used Bootstrap to have everything look nice and responsive.  EJS was used as t
 
 ## Future updates:
 
+<li>
   <ul>Add map to nearest hospital</ul>
+</li>
 
 ## Lessons Learned:
 
